@@ -5,8 +5,8 @@
 - `index.html` — site completo (uma única página, totalmente standalone)
 - `images/` — todos os ativos visuais
   - `logo.png` — logo (PNG transparente, 38×38 ideal)
-  - `team.jpg` — equipe médica
-  - `team-entrance.jpg` — equipe na entrada com letreiro
+  - `team.webp` — equipe médica
+  - `team-entrance.webp` — equipe na entrada com letreiro
   - `facade.jpg` — fachada externa
   - `consulting-room.jpg` — consultório
   - `reception.jpg` — recepção
