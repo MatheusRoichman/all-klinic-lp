@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>All Klinic — Clínica Multidisciplinar em Uberlândia/MG</title>
+<meta name="description" content="Clínica multidisciplinar em Uberlândia/MG que cuida da sua saúde de forma integral. Dermatologia, ortopedia e mais especialidades em um ambiente acolhedor e equipado com tecnologia de ponta." />
+<link rel="icon" type="image/png" href="images/logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #C49C18;
+  --gold-deep: #9E7D11;
+  --gold-soft: #E5C76B;
+  --gold-tint: #F6EFD9;
+  --cream: #F8F4EC;
+  --cream-deep: #EFE8D8;
+  --paper: #FBF9F4;
+  --ink: #1B1A17;
+  --ink-soft: #4A4640;
+  --muted: #8A847A;
+  --line: #DCD3BE;
+  --shadow: 0 30px 60px -30px rgba(27, 26, 23, 0.25);
+  --shadow-soft: 0 10px 30px -15px rgba(27, 26, 23, 0.15);
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Manrope', -apple-system, sans-serif;
+
+  --container: 1240px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; transition: color .25s ease; }
+a:hover { color: var(--gold); }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ============== TYPOGRAPHY ============== */
+.serif { font-family: var(--serif); font-weight: 400; }
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gold-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; line-height: 1.08; color: var(--ink); }
+h1 { font-size: clamp(2.8rem, 6.5vw, 5.6rem); }
+h2 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
+h3 { font-size: clamp(1.5rem, 2.5vw, 2rem); }
+em { font-style: italic; color: var(--gold-deep); }
+
+p { color: var(--ink-soft); }
+
+/* ============== NAV ============== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 22px 0;
+  background: rgba(251, 249, 244, 0.72);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid transparent;
+  transition: all .35s ease;
+}
+.nav.scrolled {
+  padding: 14px 0;
+  border-bottom-color: var(--line);
+  background: rgba(251, 249, 244, 0.92);
+}
+
+.nav-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.brand img { width: 38px; height: 38px; object-fit: contain; }
+.brand span:nth-child(2) { font-weight: 500; }
+.brand .accent { color: var(--gold); font-style: italic; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 38px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  position: relative;
+  padding: 4px 0;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width .3s ease;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--gold-deep);
+  color: var(--paper);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(158, 125, 17, 0.5);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn .arrow { transition: transform .3s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px; height: 32px;
+  position: relative;
+}
+.mobile-toggle span {
+  display: block;
+  position: absolute;
+  left: 4px; right: 4px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all .3s ease;
+}
+.mobile-toggle span:nth-child(1) { top: 10px; }
+.mobile-toggle span:nth-child(2) { top: 16px; }
+.mobile-toggle span:nth-child(3) { top: 22px; }
+.mobile-toggle.open span:nth-child(1) { top: 16px; transform: rotate(45deg); }
+.mobile-toggle.open span:nth-child(2) { opacity: 0; }
+.mobile-toggle.open span:nth-child(3) { top: 16px; transform: rotate(-45deg); }
+
+/* ============== HERO ============== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 160px 0 100px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(196, 156, 24, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+}
+
+.hero-content { position: relative; z-index: 2; }
+.hero h1 {
+  margin: 28px 0 28px;
+  font-weight: 300;
+}
+.hero h1 .gold {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+.hero-lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin-bottom: 44px;
+}
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  border-left: 1px solid var(--line);
+  padding-left: 22px;
+}
+.hero-meta-item .num {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--ink);
+  font-weight: 500;
+}
+.hero-meta-item .num em { color: var(--gold); }
+.hero-meta-item .lbl {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.hero-visual {
+  position: relative;
+  height: 640px;
+}
+.hero-img-main {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.hero-img-main img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 8s ease;
+}
+.hero-img-main:hover img { transform: scale(1.05); }
+
+.hero-img-secondary {
+  position: absolute;
+  bottom: -40px;
+  left: -60px;
+  width: 240px; height: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 8px solid var(--paper);
+}
+.hero-img-secondary img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero-tag {
+  position: absolute;
+  top: 32px; right: -30px;
+  background: var(--paper);
+  padding: 18px 24px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 3;
+}
+.hero-tag .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #2a8d4a;
+  box-shadow: 0 0 0 4px rgba(42, 141, 74, 0.18);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(42, 141, 74, 0.18); }
+  50% { box-shadow: 0 0 0 8px rgba(42, 141, 74, 0.05); }
+}
+
+/* ============== SECTIONS ============== */
+.section {
+  padding: 120px 0;
+  position: relative;
+}
+.section-cream { background: var(--cream); }
+.section-ink {
+  background: var(--ink);
+  color: var(--cream);
+}
+.section-ink h2, .section-ink h3 { color: var(--cream); }
+.section-ink p { color: rgba(248, 244, 236, 0.75); }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+.section-head-center { text-align: center; max-width: 760px; margin: 0 auto 80px; }
+.section-head h2 { margin-top: 18px; }
+.section-head p { font-size: 1.05rem; line-height: 1.7; }
+
+/* ============== ABOUT ============== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-images {
+  position: relative;
+  height: 580px;
+}
+.about-img-1 {
+  position: absolute;
+  top: 0; left: 0;
+  width: 70%; height: 70%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.about-img-2 {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 60%; height: 60%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 10px solid var(--paper);
+}
+.about-img-1 img, .about-img-2 img { width: 100%; height: 100%; object-fit: cover; }
+
+.about-decor {
+  position: absolute;
+  top: 20%; right: 5%;
+  width: 120px; height: 120px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.about h2 { margin: 28px 0 28px; max-width: 520px; }
+.about-text p { font-size: 1.05rem; margin-bottom: 22px; line-height: 1.75; }
+.about-quote {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--ink);
+  padding: 28px 0 28px 32px;
+  border-left: 2px solid var(--gold);
+  margin: 36px 0;
+}
+.about-quote .mark { color: var(--gold); font-size: 2.5rem; line-height: 0; vertical-align: -0.6em; margin-right: 6px; }
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 36px;
+}
+.about-feature h4 {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 10px;
+}
+.about-feature h4::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.about-feature p { font-size: 14px; line-height: 1.6; }
+
+/* ============== SPECIALTIES ============== */
+.specs-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.specs-head h2 { max-width: 600px; margin-top: 18px; }
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.spec {
+  padding: 48px 36px;
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--paper);
+  position: relative;
+  transition: all .4s ease;
+  overflow: hidden;
+}
+.spec:nth-child(3n) { border-right: none; }
+.spec::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-tint) 0%, var(--paper) 100%);
+  opacity: 0;
+  transition: opacity .5s ease;
+  z-index: 0;
+}
+.spec:hover::before { opacity: 1; }
+.spec > * { position: relative; z-index: 1; }
+
+.spec-num {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+.spec-icon {
+  width: 56px; height: 56px;
+  margin-bottom: 28px;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+}
+.spec-icon svg { width: 100%; height: 100%; }
+.spec h3 {
+  font-size: 1.7rem;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.spec p { font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+.spec-arrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: gap .3s ease, color .3s ease;
+}
+.spec:hover .spec-arrow { gap: 14px; color: var(--gold-deep); }
+
+/* ============== STATS ============== */
+.stats {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  top: -50%; left: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(196, 156, 24, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  position: relative;
+}
+.stat { text-align: center; }
+.stat .num {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--gold-soft);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+.stat .num .suf { font-size: 0.5em; color: var(--gold); }
+.stat .lbl {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 236, 0.65);
+  font-weight: 500;
+}
+
+/* ============== TESTIMONIALS ============== */
+.testimonials { background: var(--cream); }
+.testimonial-track {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.testimonial {
+  background: var(--paper);
+  padding: 44px 40px;
+  border-radius: 4px;
+  position: relative;
+  border-top: 3px solid var(--gold);
+  box-shadow: var(--shadow-soft);
+}
+.testimonial::before {
+  content: """;
+  position: absolute;
+  top: 16px; right: 32px;
+  font-family: var(--serif);
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.18;
+  line-height: 1;
+}
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+.testimonial-stars svg { width: 16px; height: 16px; fill: currentColor; }
+.testimonial-text {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.testimonial-meta .name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+}
+.testimonial-meta .source {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.testimonial-meta .source a { color: var(--gold-deep); }
+
+.testimonials-foot {
+  text-align: center;
+  margin-top: 64px;
+}
+.rating-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 32px;
+  background: var(--paper);
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+}
+.rating-summary .rating-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--gold-deep);
+  line-height: 1;
+  font-weight: 500;
+}
+.rating-summary .rating-stars {
+  display: flex; gap: 2px;
+  color: var(--gold);
+}
+.rating-summary .rating-stars svg { width: 16px; height: 16px; fill: currentColor; }
+.rating-summary .rating-meta {
+  text-align: left;
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+.rating-summary strong { color: var(--ink); }
+
+/* ============== GALLERY ============== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 130px;
+  gap: 16px;
+}
+.gallery-item {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(27,26,23,0.45) 100%);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.gallery-item:hover::after { opacity: 1; }
+.gallery-cap {
+  position: absolute;
+  bottom: 20px; left: 24px;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all .4s ease;
+}
+.gallery-item:hover .gallery-cap { opacity: 1; transform: translateY(0); }
+
+.g-1 { grid-column: span 7; grid-row: span 3; }
+.g-2 { grid-column: span 5; grid-row: span 2; }
+.g-3 { grid-column: span 5; grid-row: span 1; }
+
+/* ============== CONTACT ============== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: stretch;
+}
+.contact-info h2 { margin: 24px 0 28px; }
+.contact-info > p { font-size: 1.05rem; margin-bottom: 48px; max-width: 480px; line-height: 1.7; }
+
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.contact-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.contact-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  color: var(--gold-deep);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.contact-icon svg { width: 20px; height: 20px; }
+.contact-item h4 {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.contact-item p, .contact-item a {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.contact-item a:hover { color: var(--gold-deep); }
+
+.contact-map {
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--cream-deep);
+  position: relative;
+  min-height: 540px;
+  box-shadow: var(--shadow-soft);
+}
+.contact-map iframe {
+  width: 100%; height: 100%;
+  border: none;
+  filter: grayscale(0.3) contrast(1.05);
+}
+
+/* ============== FOOTER ============== */
+.footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 80px 0 32px;
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: "AK";
+  position: absolute;
+  bottom: -80px; right: -40px;
+  font-family: var(--serif);
+  font-size: 26rem;
+  color: rgba(196, 156, 24, 0.04);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+  position: relative;
+}
+.footer-brand .brand { color: var(--cream); margin-bottom: 24px; }
+.footer-brand p { color: rgba(248, 244, 236, 0.6); font-size: 14px; line-height: 1.7; max-width: 320px; }
+
+.footer h5 {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.footer ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer ul a { color: rgba(248, 244, 236, 0.7); font-size: 14px; }
+.footer ul a:hover { color: var(--gold-soft); }
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+.footer-socials a {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(248, 244, 236, 0.18);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream);
+  transition: all .3s ease;
+}
+.footer-socials a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+.footer-socials svg { width: 16px; height: 16px; fill: currentColor; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(248, 244, 236, 0.1);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(248, 244, 236, 0.5);
+  letter-spacing: 0.04em;
+  position: relative;
+}
+
+/* ============== ANIMATIONS ============== */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity .9s ease, transform .9s ease;
+}
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.js .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 980px) {
+  .nav-links, .nav .btn { display: none; }
+  .mobile-toggle { display: block; }
+
+  .nav-links.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    background: var(--paper);
+    padding: 32px;
+    gap: 24px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero { padding: 130px 0 80px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+  .hero-visual { height: 460px; max-width: 520px; margin: 0 auto; }
+  .hero-img-secondary { width: 180px; height: 220px; left: -20px; bottom: -30px; }
+  .hero-tag { right: 0; top: 16px; }
+
+  .section { padding: 80px 0; }
+  .section-head { grid-template-columns: 1fr; gap: 24px; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .about-images { height: 460px; }
+
+  .specs-grid { grid-template-columns: 1fr 1fr; }
+  .spec:nth-child(3n) { border-right: 1px solid var(--line); }
+  .spec:nth-child(2n) { border-right: none; }
+
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  .testimonial-track { grid-template-columns: 1fr; }
+
+  .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 110px; }
+  .g-1 { grid-column: span 6; grid-row: span 3; }
+  .g-2 { grid-column: span 6; grid-row: span 2; }
+  .g-3 { grid-column: span 6; grid-row: span 2; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-map { min-height: 380px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 560px) {
+  .container { padding: 0 22px; }
+  .hero h1 { font-size: 2.6rem; }
+  .hero-meta { gap: 28px; }
+  .specs-grid { grid-template-columns: 1fr; }
+  .spec { border-right: none !important; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .nav-inner { gap: 12px; }
+  .brand { font-size: 1.2rem; }
+  .brand img { width: 32px; height: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="images/logo.png" alt="All Klinic logo" />
+      <span>All</span><span class="accent">Klinic</span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#depoimentos">Pacientes</a></li>
+        <li><a href="#estrutura">Estrutura</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a href="#contato" class="btn btn-primary">
+      Agendar Consulta
+      <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content reveal">
+        <span class="eyebrow">Uberlândia / MG &nbsp;·&nbsp; desde 2015</span>
+        <h1>
+          Cuidado que enxerga você por <span class="gold">inteiro.</span>
+        </h1>
+        <p class="hero-lead">
+          Uma clínica multidisciplinar onde especialidades diferentes conversam entre si para oferecer o cuidado que sua saúde merece — com pontualidade, acolhimento e ambiente preparado para te receber bem.
+        </p>
+        <div class="hero-cta">
+          <a href="#contato" class="btn btn-primary">
+            Marcar Consulta
+            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#especialidades" class="btn btn-ghost">Ver Especialidades</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="num">10<em>+</em></div>
+            <div class="lbl">anos de história</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="num">7</div>
+            <div class="lbl">especialistas</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="num">4,9<em>★</em></div>
+            <div class="lbl">avaliação Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-tag">
+          <span class="dot"></span>
+          Atendendo hoje
+        </div>
+        <div class="hero-img-main">
+          <img src="images/team-entrance.jpg" alt="Equipe All Klinic em frente à clínica" />
+        </div>
+        <div class="hero-img-secondary">
+          <img src="images/reception.jpg" alt="Recepção da All Klinic" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="about-decor"></div>
+        <div class="about-img-1">
+          <img src="images/team.jpg" alt="Equipe médica da All Klinic" />
+        </div>
+        <div class="about-img-2">
+          <img src="images/consulting-room.jpg" alt="Consultório da All Klinic" />
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">Sobre a clínica</span>
+        <h2>Uma equipe. <em>Vários</em> olhares sobre o seu cuidado.</h2>
+        <p>
+          A All Klinic nasceu da convicção de que saúde é construída pela soma de competências. Reunimos especialistas de diferentes áreas em um mesmo ambiente — para que diagnóstico, tratamento e acompanhamento aconteçam de forma fluida, integrada e centrada em quem realmente importa: você.
+        </p>
+        <div class="about-quote">
+          <span class="mark">"</span>Clínica multidisciplinar que cuida da sua saúde de forma integral.
+        </div>
+        <div class="about-features">
+          <div class="about-feature">
+            <h4>Pontualidade</h4>
+            <p>Reconhecidos pelos pacientes como uma das clínicas mais pontuais de Uberlândia.</p>
+          </div>
+          <div class="about-feature">
+            <h4>Acolhimento</h4>
+            <p>Equipe de recepção atenta, ambiente preparado para receber bem desde a chegada.</p>
+          </div>
+          <div class="about-feature">
+            <h4>Tecnologia</h4>
+            <p>Aparelhos modernos e tratamentos avançados para entregar resultados consistentes.</p>
+          </div>
+          <div class="about-feature">
+            <h4>Confiança</h4>
+            <p>Profissionais experientes em quem você pode confiar a longo prazo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SPECIALTIES ===================== -->
+<section class="section section-cream" id="especialidades">
+  <div class="container">
+    <div class="specs-head reveal">
+      <div>
+        <span class="eyebrow">Especialidades</span>
+        <h2>Áreas que se conversam<br/>sob o mesmo teto.</h2>
+      </div>
+      <p style="max-width: 380px;">
+        Cada especialidade trabalhando em diálogo com as demais — porque o seu corpo não enxerga as fronteiras entre uma área e outra.
+      </p>
+    </div>
+
+    <div class="specs-grid reveal">
+      <article class="spec">
+        <div class="spec-num">01</div>
+        <div class="spec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/>
+            <circle cx="12" cy="12" r="3.5"/>
+          </svg>
+        </div>
+        <h3>Dermatologia</h3>
+        <p>Cuidado clínico e estético da pele — tratamento de manchas, melasma, acne, queda capilar, preenchimentos e estimuladores de colágeno com resultados naturais.</p>
+        <span class="spec-arrow">Saiba mais →</span>
+      </article>
+
+      <article class="spec">
+        <div class="spec-num">02</div>
+        <div class="spec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M8 2v6M16 2v6M6 8h12M6 8a3 3 0 0 0-3 3v3a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6v-3a3 3 0 0 0-3-3"/>
+            <circle cx="12" cy="20" r="2"/>
+          </svg>
+        </div>
+        <h3>Ortopedia</h3>
+        <p>Diagnóstico e tratamento de lesões e dores articulares, com olhar atento às particularidades de cada paciente — do esportista ao trabalhador de escritório.</p>
+        <span class="spec-arrow">Saiba mais →</span>
+      </article>
+
+      <article class="spec">
+        <div class="spec-num">03</div>
+        <div class="spec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"/>
+            <path d="M9 12a3 3 0 1 0 6 0 3 3 0 1 0-6 0M12 3v3M12 18v3M3 12h3M18 12h3"/>
+          </svg>
+        </div>
+        <h3>Oftalmologia</h3>
+        <p>Avaliação completa da saúde ocular, exames de rotina e tratamentos para manter sua visão saudável em todas as fases da vida.</p>
+        <span class="spec-arrow">Saiba mais →</span>
+      </article>
+
+      <article class="spec">
+        <div class="spec-num">04</div>
+        <div class="spec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
+          </svg>
+        </div>
+        <h3>Cardiologia</h3>
+        <p>Cuidado preventivo e tratamento de condições cardiovasculares, com exames detalhados e orientação clara sobre os próximos passos.</p>
+        <span class="spec-arrow">Saiba mais →</span>
+      </article>
+
+      <article class="spec">
+        <div class="spec-num">05</div>
+        <div class="spec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M9 11V7a3 3 0 0 1 6 0v4M5 11h14l-1 9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 11Z"/>
+            <path d="M10 16h4"/>
+          </svg>
+        </div>
+        <h3>Ginecologia</h3>
+        <p>Acompanhamento da saúde da mulher em todas as fases — consultas de rotina, planejamento familiar e tratamentos especializados.</p>
+        <span class="spec-arrow">Saiba mais →</span>
+      </article>
+
+      <article class="spec">
+        <div class="spec-num">06</div>
+        <div class="spec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2a8 8 0 0 0-8 8c0 1.5.4 2.9 1 4l-1 7 7-1c1.1.6 2.5 1 4 1a8 8 0 0 0 0-16z"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+        </div>
+        <h3>Nutrição & Bem-estar</h3>
+        <p>Plano alimentar individualizado, orientação para emagrecimento saudável e parceria com outras especialidades para resultados consistentes.</p>
+        <span class="spec-arrow">Saiba mais →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="num">10<span class="suf">+</span></div>
+        <div class="lbl">Anos em Uberlândia</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">7</div>
+        <div class="lbl">Especialistas em equipe</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">4,9<span class="suf">★</span></div>
+        <div class="lbl">Avaliação no Google</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">100<span class="suf">%</span></div>
+        <div class="lbl">Foco no paciente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section testimonials" id="depoimentos">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <span class="eyebrow">O que dizem nossos pacientes</span>
+      <h2>Confiança construída <em>uma consulta por vez.</em></h2>
+    </div>
+
+    <div class="testimonial-track">
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">
+          Minha experiência tem sido simplesmente impecável. Desde o primeiro contato, a equipe da recepção se destaca pela simpatia e alto astral. A clínica é extremamente bem equipada e os resultados são notáveis. Recomendo de olhos fechados.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">L</div>
+          <div class="testimonial-meta">
+            <div class="name">Lara Rastrello</div>
+            <div class="source">Google · Local Guide</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">
+          Pontualidade e ótimo atendimento. Acho que é a clínica mais pontual que já fui em Uberlândia.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div class="testimonial-meta">
+            <div class="name">Jeamylle Nilin</div>
+            <div class="source">Google · Local Guide</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">
+          Equipe sensacional, médicos competentes e humanos. Nota 1000.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div class="testimonial-meta">
+            <div class="name">Juliana N. Sousa</div>
+            <div class="source">Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">
+          Só tenho a agradecer. Fui por causa das boas avaliações no Doctoralia e elas são verídicas. Fui escutado com muita paciência e atenção. Me senti muito acolhido.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div class="testimonial-meta">
+            <div class="name">Stanley</div>
+            <div class="source">Doctoralia · Opinião verificada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-foot reveal">
+      <div class="rating-summary">
+        <div class="rating-num">4,9</div>
+        <div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="rating-meta"><strong>Avaliação consolidada</strong> · Google e Doctoralia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="section" id="estrutura">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <span class="eyebrow">Nossa estrutura</span>
+      <h2>Um espaço pensado para <em>cuidar bem.</em></h2>
+      <p style="margin-top: 18px;">Da fachada ao consultório, cada detalhe foi pensado para que você se sinta acolhido desde a chegada.</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item g-1">
+        <img src="images/facade.jpg" alt="Fachada da All Klinic" />
+        <div class="gallery-cap">Fachada · Av. Nicomedes Alves dos Santos</div>
+      </div>
+      <div class="gallery-item g-2">
+        <img src="images/reception.jpg" alt="Recepção" />
+        <div class="gallery-cap">Recepção</div>
+      </div>
+      <div class="gallery-item g-3">
+        <img src="images/consulting-room.jpg" alt="Consultório" />
+        <div class="gallery-cap">Consultórios equipados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section section-cream" id="contato">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Contato</span>
+        <h2>Estamos prontos para <em>te receber.</em></h2>
+        <p>Marque sua consulta por telefone ou venha nos visitar. A All Klinic está localizada em ponto de fácil acesso em Uberlândia.</p>
+
+        <ul class="contact-list">
+          <li class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .37 1.97.72 2.9a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.18-1.27a2 2 0 0 1 2.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Telefone</h4>
+              <a href="tel:+553433058305">(34) 3305-8305</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Endereço</h4>
+              <a href="https://maps.app.goo.gl/j4xMojyJ4UF1r8t3A" target="_blank" rel="noopener">Av. Nicomedes Alves dos Santos, 1078<br/>Uberlândia / MG · 38411-106</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h4>Horário de Atendimento</h4>
+              <p>Segunda a sexta · 08h às 18h<br/>Sábado · sob agendamento</p>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            </div>
+            <div>
+              <h4>Redes Sociais</h4>
+              <a href="https://www.instagram.com/allklinic/" target="_blank" rel="noopener">@allklinic</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-map reveal">
+        <iframe
+          src="https://www.google.com/maps?q=Av.+Nicomedes+Alves+dos+Santos,+1078,+Uberl%C3%A2ndia&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <img src="images/logo.png" alt="All Klinic" />
+          <span style="color: var(--cream);">All</span><span class="accent">Klinic</span>
+        </a>
+        <p>Clínica multidisciplinar que cuida da sua saúde de forma integral. Em Uberlândia desde 2015.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/allklinic/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/allklinic/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22.68 0H1.32C.59 0 0 .59 0 1.32v21.36C0 23.41.59 24 1.32 24h11.5v-9.29h-3.13v-3.62h3.13V8.41c0-3.1 1.9-4.79 4.66-4.79 1.32 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.79.71-1.79 1.76v2.31h3.58l-.47 3.62h-3.12V24h6.12c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.41 0 22.68 0z"/></svg>
+          </a>
+          <a href="https://maps.app.goo.gl/j4xMojyJ4UF1r8t3A" target="_blank" rel="noopener" aria-label="Google Maps">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#estrutura">Estrutura</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Especialidades</h5>
+        <ul>
+          <li><a href="#especialidades">Dermatologia</a></li>
+          <li><a href="#especialidades">Ortopedia</a></li>
+          <li><a href="#especialidades">Oftalmologia</a></li>
+          <li><a href="#especialidades">Cardiologia</a></li>
+          <li><a href="#especialidades">Ginecologia</a></li>
+          <li><a href="#especialidades">Nutrição</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="tel:+553433058305">(34) 3305-8305</a></li>
+          <li><a href="https://maps.app.goo.gl/j4xMojyJ4UF1r8t3A" target="_blank" rel="noopener">Av. Nicomedes Alves dos Santos, 1078</a></li>
+          <li><span style="color: rgba(248,244,236,0.7);">Uberlândia / MG</span></li>
+          <li><span style="color: rgba(248,244,236,0.7);">CEP 38411-106</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> All Klinic. Todos os direitos reservados.</div>
+      <div>Cuidando da sua saúde de forma integral.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mark JS as enabled so reveal animations only activate when observer can fire
+  document.documentElement.classList.add('js');
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 24) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Mobile toggle
+  const toggle = document.getElementById('mobileToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    links.classList.toggle('mobile-open');
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      links.classList.remove('mobile-open');
+    });
+  });
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
